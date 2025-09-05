@@ -1,4 +1,6 @@
-package LEETCODE;
+package Lec48;
+
+import java.util.Arrays;
 
 public class Longest_Common_Subsequence_1143 {
 
@@ -6,12 +8,11 @@ public class Longest_Common_Subsequence_1143 {
 		// TODO Auto-generated method stub
 		String text1 = "abcde", text2 = "ace";
 		int[][] dp = new int[text1.length()][text2.length()];
-		for (int i = 0; i < dp.length; i++) {
-			for (int j = 0; j < dp[0].length; j++) {
-				dp[i][j] = -1;
-			}
+		for (int[] a : dp) {
+			Arrays.fill(a, -1);
 		}
 		System.out.println(lcs(text1, text2, 0, 0, dp));
+		System.out.println(LCS_BU(text1, text2));
 	}
 
 	public static int lcs(String s1, String s2, int i, int j, int[][] dp) {
@@ -31,6 +32,24 @@ public class Longest_Common_Subsequence_1143 {
 			ans = Math.max(f, s);
 		}
 		return dp[i][j] = ans;
+	}
+
+	public static int LCS_BU(String s1, String s2) {
+		int[][] dp = new int[s1.length() + 1][s2.length() + 1];
+		for (int i = 1; i < dp.length; i++) {
+			for (int j = 1; j < dp[0].length; j++) {
+				int ans = 0;
+				if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
+					ans = 1 + dp[i - 1][j - 1];
+				} else {
+					int f = dp[i - 1][j];
+					int s = dp[i][j - 1];
+					ans = Math.max(f, s);
+				}
+				dp[i][j] = ans;
+			}
+		}
+		return dp[dp.length - 1][dp[0].length - 1];
 	}
 
 }
