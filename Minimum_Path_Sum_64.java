@@ -24,9 +24,10 @@ public class Minimum_Path_Sum_64 {
 		if (dp[cr][cc] != -1) {
 			return dp[cr][cc];
 		}
-		int left = Path_Sum(grid, cr, cc + 1, dp);
+		int right = Path_Sum(grid, cr, cc + 1, dp);
 		int down = Path_Sum(grid, cr + 1, cc, dp);
-		return dp[cr][cc] = Math.min(left, down) + grid[cr][cc];
+		return dp[cr][cc] = Math.min(right, down) + grid[cr][cc];
 	}
 
 }
+
