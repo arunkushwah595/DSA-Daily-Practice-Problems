@@ -1,4 +1,4 @@
-package Practice;
+package LEETCODE;
 
 import java.util.HashMap;
 
