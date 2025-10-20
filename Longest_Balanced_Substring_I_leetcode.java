@@ -1,6 +1,4 @@
-package Practice;
-
-import java.util.HashMap;
+package LEETCODE;
 
 public class Longest_Balanced_Substring_I_leetcode {
 
