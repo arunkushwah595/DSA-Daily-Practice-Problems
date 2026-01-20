@@ -50,7 +50,7 @@ public class Alphabet_Board_Path_1138 {
 			cr = r;
 			cc = c;
 		}
-
+	
 		return sb.toString();
 	}
 
